@@ -1,0 +1,42 @@
+$bg-col: #f7f7f7;
+
+@mixin flexCenter($justify) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+}
+
+.header {
+    @include flexCenter(space-between);
+    max-width: 900px;
+    margin: 1em auto;
+
+    .logo-link {
+        background-color: none;
+        box-shadow: none;
+    }
+
+    img {
+        height: 15vh;
+    }
+}
+.header-link {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-size: 1.8rem;
+
+    a {
+        @include flexCenter(center);
+        text-decoration: none;
+        color: black;
+        background-color: $bg-col;
+        padding: 0.3em;
+        border-radius: 0.4em;
+        transition: 0.35s ease;
+        &:hover {
+            box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1),
+                0 1px 20px 3px rgba(0, 0, 0, 0.06);
+        }
+    }
+}

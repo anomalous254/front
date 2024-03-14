@@ -6,14 +6,16 @@ import {
     createRoutesFromElements,
     Route,
 } from 'react-router-dom';
-import Home from './pages/Home';
+import { DashboardLayout } from './layouts';
 
 const routes = createBrowserRouter(
-    createRoutesFromElements(<Route path="/" element={<Home />} />)
+    createRoutesFromElements(
+        <Route path="/" element={<DashboardLayout />}></Route>
+    )
 );
 
 function App() {
     return <RouterProvider router={routes} />;
 }
 
-export default App
+export default App;
