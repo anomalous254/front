@@ -4,7 +4,7 @@
     height: 70vh;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2em;
+    padding: 1em;
 
     .chat {
         display: flex;
@@ -13,6 +13,7 @@
         overflow: hidden;
         overflow-y: scroll;
         height: 100%;
+        padding: 2em;
         .greeting {
             display: flex;
             justify-content: left;
@@ -23,6 +24,7 @@
             p {
                 font-size: 0.8em;
                 height: fit-content;
+                margin-right: 3em;
                 span {
                     font-weight: bold;
                 }
@@ -68,8 +70,50 @@
         }
     }
 
-    .msg{
+    .chat-box {
         display: flex;
         justify-content: right;
+        gap: 0.5em;
+        margin-top: 0.4em;
+        position: relative;
+        .sender {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3em;
+            width: 100%;
+        }
+        .msg-container {
+            .user {
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                gap: 0.5em;
+                img {
+                    height: 6vh;
+                }
+                .message {
+                    background-color: #2d9bf0;
+                    color: white;
+                    padding: 0.4em;
+                    border-radius: 0.4em;
+                    margin-left: 3em;
+                }
+            }
+            .bot {
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                text-align: left;
+                img {
+                    height: 8vh;
+                }
+                .message {
+                    background-color: white;
+                    padding: 0.4em;
+                    border-radius: 0.4em;
+                    margin-right: 3em;
+                }
+            }
+        }
     }
 }

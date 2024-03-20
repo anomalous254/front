@@ -13,3 +13,33 @@ a {
     color: inherit;
     white-space: nowrap;
 }
+
+/* Track */
+::-webkit-scrollbar {
+    width: 5px; /* Width of the scrollbar */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #2d9bf0; /* Color of the scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #2d9bf0; /* Color of the scrollbar handle on hover */
+}
+
+/* Track */
+::-moz-scrollbar {
+    width: 5px; /* Width of the scrollbar */
+}
+
+/* Handle */
+::-moz-scrollbar-thumb {
+    background: #2d9bf0; /* Color of the scrollbar handle */
+}
+
+/* Handle on hover */
+::-moz-scrollbar-thumb:hover {
+    background: #2d9bf0; /* Color of the scrollbar handle on hover */
+}
