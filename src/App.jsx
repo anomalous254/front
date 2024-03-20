@@ -7,10 +7,13 @@ import {
     Route,
 } from 'react-router-dom';
 import { DashboardLayout } from './layouts';
+import { StartGame } from './pages';
 
 const routes = createBrowserRouter(
     createRoutesFromElements(
-        <Route path="/" element={<DashboardLayout />}></Route>
+        <Route path="/" element={<DashboardLayout />}>
+            <Route index element={<StartGame />} />
+        </Route>
     )
 );
 

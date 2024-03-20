@@ -8,8 +8,6 @@ $bg-col: #f7f7f7;
 
 .header {
     @include flexCenter(space-between);
-    max-width: 900px;
-    margin: 1em auto;
 
     .logo-link {
         background-color: none;

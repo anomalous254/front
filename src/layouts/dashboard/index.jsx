@@ -1,13 +1,16 @@
 import React from 'react';
-import { Header } from '../../components';
+import { Header, SideBar, Footer } from '../../components';
 import { Outlet } from 'react-router-dom';
+import './index.scss';
 
 export const DashboardLayout = () => {
     return (
-        <div>
+        <div className="layout">
             <Header />
-            <div>
+            <div className="outlet">
+                <SideBar />
                 <Outlet />
+                <Footer />
             </div>
         </div>
     );

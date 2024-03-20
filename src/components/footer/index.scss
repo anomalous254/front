@@ -1,0 +1,28 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.6em;
+
+    a {
+        background-color: #f7f7f7;
+        padding: 0.6em;
+        border-radius: 0.4em;
+    }
+
+    .footer-icon {
+        font-size: 1.2rem;
+    }
+
+    .footer-link {
+        display: flex;
+        gap: 0.4em;
+        align-items: center;
+        white-space: nowrap;
+
+        p {
+            color: gray;
+            font-size: 0.9em;
+        }
+    }
+}
