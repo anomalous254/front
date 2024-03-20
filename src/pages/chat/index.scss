@@ -1,16 +1,75 @@
-.greeting {
+.form {
+    position: relative;
     display: flex;
-    gap: 0.4em;
-    img {
-        height: 8vh;
-    }
-    p {
-        font-size: .9em;
-        span{
-            font-weight: bold;
+    height: 70vh;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2em;
+
+    .chat {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4em;
+        overflow: hidden;
+        overflow-y: scroll;
+        height: 100%;
+        .greeting {
+            display: flex;
+            justify-content: left;
+            gap: 0.4em;
+            img {
+                height: 8vh;
+            }
+            p {
+                font-size: 0.8em;
+                height: fit-content;
+                span {
+                    font-weight: bold;
+                }
+                background-color: white;
+                padding: 0.4em;
+                border-radius: 0.4em;
+            }
         }
-        background-color: white;
-        padding: 0.4em;
-        border-radius: 0.4em;
+    }
+
+    .answer {
+        width: 100%;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        border-radius: 0.3em;
+
+        input {
+            width: 100%;
+            font-size: 1em;
+            &::placeholder {
+                color: gray;
+                font-size: 1em;
+            }
+        }
+        input,
+        button {
+            background-color: transparent;
+            padding: 1em;
+            border: none;
+            outline: none;
+        }
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2d9bf0;
+            color: white;
+            margin: 0.5em;
+            cursor: pointer;
+            border-radius: 0.3em;
+        }
+    }
+
+    .msg{
+        display: flex;
+        justify-content: right;
     }
 }
