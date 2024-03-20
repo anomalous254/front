@@ -7,5 +7,14 @@
         display: grid;
         gap: 1em;
         grid-template-columns: 0.1fr 1fr 0.2fr;
+
+        .outlet-container{
+            background-color: #f5f5f5;
+            height: 70vh;
+            overflow: hidden;
+            overflow-y: scroll;
+            border-radius: 0.4em;
+            padding: 2em;
+        }
     }
 }

@@ -13,6 +13,7 @@ const routes = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<DashboardLayout />}>
             <Route index element={<StartGame />} />
+            <Route path='*' element={<h3>Page Not Found</h3>} />
         </Route>
     )
 );

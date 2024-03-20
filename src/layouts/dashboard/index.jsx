@@ -9,7 +9,10 @@ export const DashboardLayout = () => {
             <Header />
             <div className="outlet">
                 <SideBar />
-                <Outlet />
+                <div className='outlet-container'>
+                    <Outlet />
+                </div>
+
                 <Footer />
             </div>
         </div>
