@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.scss';
 import { useAvatar } from '../../hooks';
+import { Link } from 'react-router-dom';
 
 const languges = ['Yoruba', 'Swahili', 'Hausa', 'Igbo'];
 export const StartGame = () => {
@@ -59,7 +60,15 @@ export const StartGame = () => {
                     </div>
                     <div className="start-btn">
                         {selectedAvatar && selectedLng ? (
-                            <button>Start Game</button>
+                            <Link
+                                to="game"
+                                state={{
+                                    icon: selectedAvatar,
+                                    language: selectedLng,
+                                }}
+                            >
+                                <button>Start game</button>
+                            </Link>
                         ) : null}
                     </div>
                 </div>

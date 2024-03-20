@@ -94,17 +94,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-
-            button {
-                background-color: #abd7f9;
-                border: none;
-                outline: none;
-                padding: 0.6em;
-                border-radius: 0.3em;
-                font-size: 1em;
+            a {
                 width: 50%;
-                margin: 1em 0;
-                color: white;
+                button {
+                    background-color: #abd7f9;
+                    border: none;
+                    outline: none;
+                    padding: 0.6em;
+                    border-radius: 0.3em;
+                    font-size: 1em;
+                    margin: 1em 0;
+                    width: 100%;
+                    color: white;
+                    cursor: pointer;
+                }
             }
         }
     }

@@ -6,11 +6,12 @@ export const SideBar = () => {
     return (
         <div className="sidebar">
             <NavLink
+                to='/'
                 className={({ isActive }) =>
                     isActive ? 'active-link' : 'link'
                 }
             >
-                Start Game
+                Start
             </NavLink>
             <NavLink
                 to="words"
@@ -37,7 +38,7 @@ export const SideBar = () => {
                 Leaderboard
             </NavLink>
             <NavLink
-                to="quit"
+                to="/login"
                 className={({ isActive }) =>
                     isActive ? 'active-link' : 'link'
                 }
