@@ -8,12 +8,15 @@ export const DashboardLayout = () => {
         <div className="layout">
             <Header />
             <div className="outlet">
-                <SideBar />
-                <div className='outlet-container'>
+                <div className="side-nav">
+                    <SideBar />
+                </div>
+                <div className="outlet-container">
                     <Outlet />
                 </div>
-
-                <Footer />
+                <div className="footer">
+                    <Footer />
+                </div>
             </div>
         </div>
     );

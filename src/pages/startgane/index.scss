@@ -1,3 +1,5 @@
+@import '../../responsive.scss';
+
 .start-game {
     position: relative;
     padding: 2em;
@@ -75,11 +77,26 @@
                     padding: 1em;
                     font-size: 1.2em;
                     color: white;
+
+                    @include md{
+                        font-size: 1.1em;
+                     }
+
+                    @include sm{
+                       font-size: 1em;
+                    }
                 }
             }
 
             img {
                 height: 20vh;
+
+                @include md{
+                    height: 12vh;
+                }
+                @include sm{
+                    height: 10vh;
+                }
             }
             h5 {
                 color: gray;

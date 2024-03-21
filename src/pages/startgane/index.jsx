@@ -49,7 +49,7 @@ export const StartGame = () => {
                 </div>
             </div>
 
-            {selectedLng ? (
+            {selectedLng && selectedAvatar ? (
                 <div className="selected">
                     <h4>Your Selection</h4>
                     <div className="my-selection">
