@@ -7,22 +7,31 @@ import { Link } from 'react-router-dom';
 import { RiMenu3Fill } from 'react-icons/ri';
 
 export const Header = () => {
+    const [showMenu, setShowMenu] = React.useState(false);
     return (
-        <header className="header">
-            <Link to="/" className="logo-link">
-                <img src={logo} />
-            </Link>
-            <div className="header-link">
-                <Link className="landing-page">
-                    <FaGlobe />
+        <React.Fragment>
+            <header className="header">
+                <Link to="/" className="logo-link">
+                    <img src={logo} />
                 </Link>
-                <Link>
-                    <FaUser />
-                </Link>
-                <button className="toggle-btn">
-                    <RiMenu3Fill />
-                </button>
+                <div className="header-link">
+                    <Link className="landing-page">
+                        <FaGlobe />
+                    </Link>
+                    <Link>
+                        <FaUser />
+                    </Link>
+                    <button
+                        onClick={() => setShowMenu(!showMenu)}
+                        className="toggle-btn"
+                    >
+                        <RiMenu3Fill />
+                    </button>
+                </div>
+            </header>
+            <div className={showMenu ? 'show-menu ' : 'menu-container'}>
+                <h3>Menu</h3>
             </div>
-        </header>
+        </React.Fragment>
     );
 };
