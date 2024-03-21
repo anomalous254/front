@@ -1,3 +1,4 @@
+@import '../../responsive.scss';
 $bg-col: #f7f7f7;
 
 @mixin flexCenter($justify) {
@@ -9,6 +10,10 @@ $bg-col: #f7f7f7;
 .header {
     @include flexCenter(space-between);
 
+    @include sm {
+        padding: 0.4em;
+    }
+
     .logo-link {
         background-color: none;
         box-shadow: none;
@@ -16,15 +21,29 @@ $bg-col: #f7f7f7;
 
     img {
         height: 15vh;
+        @include sm {
+            height: 10vh;
+        }
     }
 }
 .header-link {
     display: flex;
     align-items: center;
     gap: 1em;
-    font-size: 1.8rem;
+    font-size: 1.8em;
 
-    a {
+    @include sm{
+        font-size: 1.4em;
+    }
+
+    @include sm {
+        .landing-page {
+            display: none;
+        }
+    }
+
+    a,
+    .toggle-btn {
         @include flexCenter(center);
         text-decoration: none;
         color: black;
@@ -35,6 +54,19 @@ $bg-col: #f7f7f7;
         &:hover {
             box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1),
                 0 1px 20px 3px rgba(0, 0, 0, 0.06);
+            @include sm{
+                box-shadow: none;
+            }
+        }
+    }
+
+    .toggle-btn {
+        font-size: 1.1em;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        &:hover {
+            box-shadow: none;
         }
     }
 }
