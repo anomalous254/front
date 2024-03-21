@@ -1,0 +1,46 @@
+.reviews {
+    padding: 2em;
+    display: grid;
+    gap: 1em;
+
+    .review-card {
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 0.4em;
+            p {
+                font-size: 0.8em;
+                font-weight: 600;
+            }
+            img {
+                height: 8vh;
+                border-radius: 50%;
+            }
+        }
+
+        .comment{
+            p{
+                margin: .4em .3em;
+                color: gray;
+                font-size: .85em;
+            }
+        }
+        .review-icons {
+            display: flex;
+            gap: 0.4em;
+            align-items: center;
+            margin: .4em 0;
+            small {
+                display: flex;
+                align-items: center;
+                gap: .5em;
+                
+            }
+
+            .r-icon{
+                font-size: 1.2em;
+                cursor: pointer;
+            }
+        }
+    }
+}

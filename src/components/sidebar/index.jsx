@@ -22,7 +22,7 @@ export const SideBar = () => {
                 Words
             </NavLink>
             <NavLink
-                to="review"
+                to="reviews"
                 className={({ isActive }) =>
                     isActive ? 'active-link' : 'link'
                 }
