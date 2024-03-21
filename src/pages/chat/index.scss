@@ -96,6 +96,9 @@
                 align-items: center;
                 justify-content: right;
                 gap: 0.5em;
+                @include sm{
+                    justify-content: right;
+                }
                 img {
                     height: 6vh;
                 }
