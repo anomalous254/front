@@ -5,7 +5,7 @@ import { FaUser } from 'react-icons/fa';
 import './index.scss';
 import { Link } from 'react-router-dom';
 import { RiMenu3Fill } from 'react-icons/ri';
-
+import { IoMdCloseCircleOutline } from 'react-icons/io';
 export const Header = () => {
     const [showMenu, setShowMenu] = React.useState(false);
     return (
@@ -25,7 +25,11 @@ export const Header = () => {
                         onClick={() => setShowMenu(!showMenu)}
                         className="toggle-btn"
                     >
-                        <RiMenu3Fill />
+                        {showMenu ? (
+                            <IoMdCloseCircleOutline className="menu-icon" />
+                        ) : (
+                            <RiMenu3Fill className="menu-icon" />
+                        )}
                     </button>
                 </div>
             </header>

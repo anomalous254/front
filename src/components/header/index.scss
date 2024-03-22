@@ -74,6 +74,10 @@ $bg-col: #f7f7f7;
         @include sm {
             display: block;
         }
+
+        .menu-icon{
+            font-size: 1.2em;
+        }
     }
 }
 
