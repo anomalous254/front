@@ -113,7 +113,7 @@ $bg-col: #f7f7f7;
     top: 0;
     right: 0;
     transition: width 0.45s ease;
-    display: none;
+    display: block;
 
     &.close {
         animation: smooth-close 0.5s forwards;

@@ -14,17 +14,14 @@ a {
     white-space: nowrap;
 }
 
-html,
-body,
-#root {
-  height: 100%;
+body {
+    height: 100vh;
 }
-
-
 
 /* Track */
 ::-webkit-scrollbar {
     width: 5px; /* Width of the scrollbar */
+    display: none;
 }
 
 /* Handle */
