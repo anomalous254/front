@@ -26,7 +26,7 @@ export const Header = () => {
                         className="toggle-btn"
                     >
                         {showMenu ? (
-                            <IoMdCloseCircleOutline className="menu-icon" />
+                            <IoMdCloseCircleOutline className="menu-icon close" />
                         ) : (
                             <RiMenu3Fill className="menu-icon" />
                         )}
