@@ -4,8 +4,6 @@
     max-width: 900px;
     margin: 1em auto;
     overflow: hidden;
-    height: 100vh;
-
     @include sm {
         margin: 0.2em auto;
     }
@@ -34,6 +32,7 @@
         .outlet-container {
             background-color: #f5f5f5;
             overflow: hidden;
+            height: 70vh;
             overflow-y: scroll;
             border-radius: 0.4em;
             position: relative;

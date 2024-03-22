@@ -97,13 +97,11 @@ $bg-col: #f7f7f7;
     right: 0;
     transition: width 0.45s ease;
     display: none;
-
     &.active {
-        animation: smooth-open 0.5s forwards; 
+        animation: smooth-open 0.5s forwards;
         display: block;
     }
 }
-
 .close-menu {
     align-items: center;
     position: absolute;
@@ -117,13 +115,11 @@ $bg-col: #f7f7f7;
     transition: width 0.45s ease;
     display: none;
 
-
     &.close {
-        animation: smooth-close 0.5s forwards; 
+        animation: smooth-close 0.5s forwards;
         display: block;
     }
 }
-
 
 @keyframes smooth-open {
     from {
@@ -149,4 +145,3 @@ $bg-col: #f7f7f7;
     flex-direction: column;
     gap: 2em;
 }
-
