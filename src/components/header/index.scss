@@ -67,6 +67,7 @@ $bg-col: #f7f7f7;
         cursor: pointer;
         display: none;
         background-color: transparent;
+        z-index: 9999999;
         &:hover {
             box-shadow: none;
         }
@@ -91,10 +92,20 @@ $bg-col: #f7f7f7;
     z-index: 9999;
     background-color: white;
     width: 100%;
-    height: 100%;
-    transition: all 0.35s ease;
+    height: 100vh;
+    top: 0;
+    right: -100%;
+    transition: all .45s ease;
+
+    &.active{
+        right: 0;
+    }
 }
 
-.menu-container {
-    display: none;
+.menu-sm-screens{
+    margin: 9em 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+   
 }

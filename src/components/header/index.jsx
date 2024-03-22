@@ -6,6 +6,8 @@ import './index.scss';
 import { Link } from 'react-router-dom';
 import { RiMenu3Fill } from 'react-icons/ri';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
+import { NavLink } from 'react-router-dom';
+
 export const Header = () => {
     const [showMenu, setShowMenu] = React.useState(false);
     return (
@@ -33,8 +35,30 @@ export const Header = () => {
                     </button>
                 </div>
             </header>
-            <div className={showMenu ? 'show-menu ' : 'menu-container'}>
-                <h3>Menu</h3>
+            <div className={showMenu ? 'show-menu active ' : 'show-menu'}>
+                <div className="menu-sm-screens">
+                    <NavLink onClick={() => setShowMenu(!showMenu)} to="/">
+                        Start
+                    </NavLink>
+                    <NavLink onClick={() => setShowMenu(!showMenu)} to="words">
+                        Words
+                    </NavLink>
+                    <NavLink
+                        onClick={() => setShowMenu(!showMenu)}
+                        to="reviews"
+                    >
+                        Tribe reviews
+                    </NavLink>
+                    <NavLink
+                        onClick={() => setShowMenu(!showMenu)}
+                        to="leaderboard"
+                    >
+                        Leaderboard
+                    </NavLink>
+                    <NavLink onClick={() => setShowMenu(!showMenu)} to="/login">
+                        Quit
+                    </NavLink>
+                </div>
             </div>
         </React.Fragment>
     );
