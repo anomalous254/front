@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Header = () => {
     const [showMenu, setShowMenu] = React.useState(false);
+    
     return (
         <React.Fragment>
             <header className="header">
@@ -37,7 +38,9 @@ export const Header = () => {
 
                 <div
                     className={
-                        showMenu ? 'show-menu active ' : 'close-menu close'
+                        showMenu
+                            ? 'show-menu active '
+                            : `show-menu`
                     }
                 >
                     <div className="menu-sm-screens">
