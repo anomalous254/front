@@ -96,9 +96,11 @@ $bg-col: #f7f7f7;
     top: 0;
     right: -100%;
     transition: all .45s ease;
+    display: none;
 
     &.active{
         right: 0;
+        display: inline;
     }
 }
 
