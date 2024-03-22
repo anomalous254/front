@@ -80,42 +80,84 @@ $bg-col: #f7f7f7;
             font-size: 1.2em;
         }
         .close {
-            color: rgb(220, 58, 58);
+            color: white;
         }
     }
 }
 
-.show-menu {
-    align-items: center;
+.menu-container {
     position: absolute;
-    z-index: 9999;
-    background-color: white;
-    width: 50%;
-    height: 100%;
-    overflow: hidden;
     top: 0;
-    right: 0;
-    transition: width 0.45s ease;
-    display: none;
-    &.active {
-        animation: smooth-open 0.5s forwards;
-        display: block;
-    }
-}
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    backdrop-filter: blur(3px);
+    .show-menu {
+        position: absolute;
+        z-index: 9999;
+        background-color: #0b86e4;
+        color: white;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        top: 0;
+        right: 0;
+        transition: width 0.45s ease;
+        display: none;
 
-@keyframes smooth-open {
-    from {
-        width: 0; 
+        &.active {
+            animation: smooth-open 0.5s forwards;
+            display: block;
+        }
     }
-    to {
-        width: 50%; 
+
+    @keyframes smooth-open {
+        from {
+            width: 0;
+        }
+        to {
+            width: 50%;
+        }
     }
-}
 
+    .menu-sm-screens {
+        margin: 9em 2em;
+        display: flex;
+        flex-direction: column;
+        gap: 1.8em;
+        font-weight: bold;
 
-.menu-sm-screens {
-    margin: 9em 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
+        .footer-sm-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 0.6em;
+
+            a {
+                background-color: #7db6e2;
+                padding: 0.4em;
+                border-radius: 0.4em;
+            }
+
+            .footer-sm-icon {
+                font-size: 1.6rem;
+                color: white;
+            }
+
+            .footer-sm-link {
+                display: flex;
+                gap: 0.4em;
+                align-items: center;
+                white-space: nowrap;
+
+                p {
+                    color: gray;
+                    font-size: 0.8em;
+                    color: white;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
 }
