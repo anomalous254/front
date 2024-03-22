@@ -13,11 +13,14 @@ a {
     color: inherit;
     white-space: nowrap;
 }
-body {
-    height: 100vh;
-    overflow: hidden;
-    width: 100vw;
+
+html,
+body,
+#root {
+  height: 100%;
 }
+
+
 
 /* Track */
 ::-webkit-scrollbar {

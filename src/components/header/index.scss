@@ -76,36 +76,77 @@ $bg-col: #f7f7f7;
             display: block;
         }
 
-        .menu-icon{
+        .menu-icon {
             font-size: 1.2em;
         }
-        .close{
+        .close {
             color: rgb(220, 58, 58);
         }
     }
 }
 
 .show-menu {
-    display: flex;
-    justify-content: center;
+    align-items: center;
     position: absolute;
     z-index: 9999;
     background-color: white;
-    width: 100%;
+    width: 50%;
     height: 100%;
+    overflow: hidden;
     top: 0;
-    right: -130%;
-    transition: all .45s ease;
+    right: 0;
+    transition: width 0.45s ease;
+    display: none;
 
-    &.active{
-        right: 0;
+    &.active {
+        animation: smooth-open 0.5s forwards; 
+        display: block;
     }
 }
 
-.menu-sm-screens{
-    margin: 9em 0;
+.close-menu {
+    align-items: center;
+    position: absolute;
+    z-index: 9999;
+    background-color: white;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    transition: width 0.45s ease;
+    display: none;
+
+
+    &.close {
+        animation: smooth-close 0.5s forwards; 
+        display: block;
+    }
+}
+
+
+@keyframes smooth-open {
+    from {
+        width: 0; /* Start with width 0 */
+    }
+    to {
+        width: 50%; /* End with full width */
+    }
+}
+
+@keyframes smooth-close {
+    from {
+        width: 50%; /* Start with full width */
+    }
+    to {
+        width: 0; /* End with width 0 */
+    }
+}
+
+.menu-sm-screens {
+    margin: 9em 1em;
     display: flex;
     flex-direction: column;
     gap: 2em;
-   
 }
+

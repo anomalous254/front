@@ -34,32 +34,43 @@ export const Header = () => {
                         )}
                     </button>
                 </div>
-            </header>
-            <div className={showMenu ? 'show-menu active ' : 'show-menu'}>
-                <div className="menu-sm-screens">
-                    <NavLink onClick={() => setShowMenu(!showMenu)} to="/">
-                        Start
-                    </NavLink>
-                    <NavLink onClick={() => setShowMenu(!showMenu)} to="words">
-                        Words
-                    </NavLink>
-                    <NavLink
-                        onClick={() => setShowMenu(!showMenu)}
-                        to="reviews"
-                    >
-                        Tribe reviews
-                    </NavLink>
-                    <NavLink
-                        onClick={() => setShowMenu(!showMenu)}
-                        to="leaderboard"
-                    >
-                        Leaderboard
-                    </NavLink>
-                    <NavLink onClick={() => setShowMenu(!showMenu)} to="/login">
-                        Quit
-                    </NavLink>
+
+                <div
+                    className={
+                        showMenu ? 'show-menu active ' : 'close-menu close'
+                    }
+                >
+                    <div className="menu-sm-screens">
+                        <NavLink onClick={() => setShowMenu(!showMenu)} to="/">
+                            Start
+                        </NavLink>
+                        <NavLink
+                            onClick={() => setShowMenu(!showMenu)}
+                            to="words"
+                        >
+                            Words
+                        </NavLink>
+                        <NavLink
+                            onClick={() => setShowMenu(!showMenu)}
+                            to="reviews"
+                        >
+                            Tribe reviews
+                        </NavLink>
+                        <NavLink
+                            onClick={() => setShowMenu(!showMenu)}
+                            to="leaderboard"
+                        >
+                            Leaderboard
+                        </NavLink>
+                        <NavLink
+                            onClick={() => setShowMenu(!showMenu)}
+                            to="/login"
+                        >
+                            Quit
+                        </NavLink>
+                    </div>
                 </div>
-            </div>
+            </header>
         </React.Fragment>
     );
 };
