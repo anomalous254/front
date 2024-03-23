@@ -1,0 +1,68 @@
+@import '../../responsive.scss';
+
+.splash-screen {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0b86e4;
+    color: white;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    backdrop-filter: blur(3px);
+    @include sm {
+        flex-direction: column;
+    }
+
+    img {
+        height: 65vh;
+        transition: all 0.35s ease;
+        animation: moveUpDown 2s ease-in-out infinite alternate-reverse both;
+        @include sm {
+            height: 40vh;
+        }
+    }
+
+    @keyframes moveUpDown {
+        0% {
+            transform: translateY(10px);
+        }
+
+        100% {
+            transform: translateY(-20px);
+        }
+    }
+
+    .left-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        @include sm {
+            margin: 1em 0;
+        }
+
+        a {
+            color: white;
+            transition: all 0.35s ease;
+            padding: 0.4em;
+            border-radius: 0.3em;
+            @include sm {
+                font-size: 0.8em;
+                text-align: center;
+                background-color: #f2f2f2;
+                padding: 0.4em;
+                color: black;
+                border-radius: 0.3em;
+            }
+            &:hover {
+                background-color: #f7f7f7;
+                padding: 0.4em;
+                color: black;
+                border-radius: 0.3em;
+            }
+        }
+    }
+}

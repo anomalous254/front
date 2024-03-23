@@ -8,6 +8,9 @@ export const ReviewList = () => {
     const reviews = useReviews() || [];
     return (
         <div className="reviews">
+            <div>
+                <h5>What are people saying about lulu</h5>
+            </div>
             {reviews.map((review) => (
                 <ReviewCard key={review.id} {...review} />
             ))}
@@ -28,8 +31,9 @@ const ReviewCard = ({ name, comment, likes, loves, stars, image }) => {
                 <p>{comment}</p>
             </div>
             <div className="review-icons">
-                <small >
-                    <FcLike onClick={() => loves + 1 } className="r-icon" /> {loves}
+                <small>
+                    <FcLike onClick={() => loves + 1} className="r-icon" />{' '}
+                    {loves}
                 </small>
                 <small>
                     <AiFillLike className="r-icon" />
