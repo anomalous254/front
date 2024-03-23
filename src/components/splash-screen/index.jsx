@@ -23,7 +23,7 @@ export const LoadingPage = () => {
                 <div className="quit">
                     <div className="prompt">
                         <img src={bot} alt="logo" className="quit-bot" />
-                        <p>Do you want to Qiut this game ?</p>
+                        <p>Do you want to Quit this game ?</p>
                         <div className="quit-btn">
                             <Link to="https://lulugame.vercel.app/">
                                 <GoIssueClosed className="quit-link" />
