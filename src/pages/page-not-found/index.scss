@@ -1,0 +1,48 @@
+@import '../../responsive.scss';
+
+.page-not-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0b86e4;
+    height: 100vh;
+    color: white;
+
+    .contents {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+
+        @include sm{
+            flex-direction: column;
+        }
+        h2{
+            margin-bottom: 1em;
+        }
+
+        a{
+            background-color: #f5f5f5;
+            color: black;
+            padding: .4em;
+            border-radius: .3em;
+        }
+        img {
+            height: 65vh;
+            transition: all 0.35s ease;
+            animation: moveUpDown 2s ease-in-out infinite alternate-reverse both;
+            @include sm {
+                height: 40vh;
+            }
+        }
+
+        @keyframes moveUpDown {
+            0% {
+                transform: translateY(10px);
+            }
+
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+    }
+}
