@@ -15,7 +15,7 @@ export const LoadingPage = () => {
                 <Link to="/dashboard">Start Game</Link>
                 <Link to="/dashboard/words">Words/Phrases</Link>
                 <Link to="/dashboard/reviews">Tribe Reviews</Link>
-                <Link to="/dashboard/leadership">Leadership Board</Link>
+                <Link to="/dashboard/leaderboard">Leadership Board</Link>
                 <Link onClick={() => setQuit(true)}>Quit</Link>
             </div>
 
