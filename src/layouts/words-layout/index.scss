@@ -1,0 +1,20 @@
+.words-header {
+    background-color: #0b86e4;
+    padding: 0.75em;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 100%;
+    gap: 1em;
+
+
+    .word-link {
+        background-color: white;
+        padding: 0.65em;
+        border-radius: 0.4em;
+        color: black;
+        font-size: .8em;
+        white-space: nowrap;
+    }
+}

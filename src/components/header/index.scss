@@ -52,8 +52,6 @@ $bg-col: #f7f7f7;
         border-radius: 0.4em;
         transition: 0.35s ease;
         &:hover {
-            box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1),
-                0 1px 20px 3px rgba(0, 0, 0, 0.06);
             @include sm {
                 box-shadow: none;
             }

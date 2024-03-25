@@ -1,0 +1,18 @@
+.words{
+    display: grid;
+    gap: 1em;
+    padding:2em;
+
+    h4{
+        text-align: center;
+    }
+
+    .words-card{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        padding: .6em;
+        border-radius: .5em;
+    }
+}

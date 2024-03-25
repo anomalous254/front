@@ -5,16 +5,17 @@ import { NavLink } from 'react-router-dom';
 export const SideBar = () => {
     return (
         <div className="sidebar">
-            <NavLink
-                to='/'
+             <NavLink
+                to="/dashboard"
+                end
                 className={({ isActive }) =>
                     isActive ? 'active-link' : 'link'
                 }
             >
-                Start
+                Play
             </NavLink>
             <NavLink
-                to="words"
+                to="words?language=hausa"
                 className={({ isActive }) =>
                     isActive ? 'active-link' : 'link'
                 }
@@ -38,7 +39,7 @@ export const SideBar = () => {
                 Leaderboard
             </NavLink>
             <NavLink
-                to="/login"
+                to="/"
                 className={({ isActive }) =>
                     isActive ? 'active-link' : 'link'
                 }
