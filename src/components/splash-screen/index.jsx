@@ -13,7 +13,7 @@ export const LoadingPage = () => {
             <img src={bot} alt="logo" />
             <div className="left-section">
                 <Link to="/dashboard">Start Game</Link>
-                <Link to="/dashboard/words">Words/Phrases</Link>
+                <Link to="/dashboard/words?language=yoruba">Words/Phrases</Link>
                 <Link to="/dashboard/reviews">Tribe Reviews</Link>
                 <Link to="/dashboard/leaderboard">Leadership Board</Link>
                 <Link onClick={() => setQuit(true)}>Quit</Link>

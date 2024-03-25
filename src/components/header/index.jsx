@@ -55,7 +55,7 @@ export const Header = () => {
                                 </NavLink>
                                 <NavLink
                                     onClick={() => setShowMenu(!showMenu)}
-                                    to="words"
+                                    to="words?language=yoruba"
                                 >
                                     Words
                                 </NavLink>
