@@ -21,10 +21,14 @@ export const Header = () => {
                     <img src={logo} />
                 </Link>
                 <div className="header-link">
-                    <Link className="landing-page">
+                    <Link
+                        to="https://lulugame.vercel.app/"
+                        target="_blank"
+                        className="landing-page"
+                    >
                         <FaGlobe />
                     </Link>
-                    <Link>
+                    <Link to="profile">
                         <FaUser />
                     </Link>
                     <button

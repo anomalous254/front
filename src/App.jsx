@@ -6,7 +6,7 @@ import {
     createRoutesFromElements,
     Route,
 } from 'react-router-dom';
-import { DashboardLayout, WordsPageLayout } from './layouts';
+import { DashboardLayout, WordsPageLayout, ProfileLayout } from './layouts';
 import {
     StartGame,
     Game,
@@ -14,6 +14,8 @@ import {
     PageNotFound,
     Leaderboard,
     Words,
+    ProfileInfo,
+    ProfileScores,
 } from './pages';
 import { LoadingPage } from './components';
 
@@ -25,6 +27,10 @@ const routes = createBrowserRouter(
                 <Route index element={<StartGame />} />
                 <Route path="game" element={<Game />} />
                 <Route path="reviews" element={<ReviewList />} />
+                <Route path="profile" element={<ProfileLayout />}>
+                    <Route index element={<ProfileInfo />} />
+                    <Route path="scores" element={<ProfileScores />} />
+                </Route>
                 <Route path="words" element={<WordsPageLayout />}>
                     <Route index element={<Words />} />
                 </Route>
