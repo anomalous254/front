@@ -40,6 +40,10 @@ $bg-col: #f7f7f7;
         height: 40px;
         width: 40px;
         border-radius: 50%;
+        @include sm {
+            height: 30px;
+            width: 30px;
+        }
         
 
     }
