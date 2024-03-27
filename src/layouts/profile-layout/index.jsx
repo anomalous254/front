@@ -8,7 +8,7 @@ const data = {
     name: 'Kwame Nkuruma',
     contact: '+234-123-456-789',
     country: 'Nigeria',
-    email: 'johndoe@example.com',
+    email: 'Kwame@gmail.com',
     languages_scores: [
         { name: 'swahili', points: 200 },
         { name: 'igbo', points: 90 },
