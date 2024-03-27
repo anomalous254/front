@@ -25,7 +25,7 @@ export const ProfileLayout = () => {
         <div className="profile">
             <div className="upper-section">
                 <div className="nav-bar">
-                    <Link>
+                    <Link to='..' relative='path'>
                         <MdKeyboardArrowLeft className="profile-icon arrow" />
                     </Link>
                     <Link>
