@@ -11,6 +11,9 @@ import { FaBookOpen } from 'react-icons/fa6';
 import { FaInfo } from 'react-icons/fa';
 import { IoGitBranch } from 'react-icons/io5';
 
+const user_image =
+    'https://img.freepik.com/premium-vector/african-american-black-young-man-rhombus-vest-round-avatar-face-icon-flat-style_768258-2936.jpg';
+
 export const Header = () => {
     const [showMenu, setShowMenu] = React.useState(false);
 
@@ -28,8 +31,12 @@ export const Header = () => {
                     >
                         <FaGlobe />
                     </Link>
-                    <Link to="profile">
-                        <FaUser />
+                    <Link to="profile" className={user_image ? 'img-link' : null}>
+                        {user_image ? (
+                            <img src={user_image} className='profile-image-link' alt="image" />
+                        ) : (
+                            <FaUser />
+                        )}
                     </Link>
                     <button
                         onClick={() => setShowMenu(!showMenu)}

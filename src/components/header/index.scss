@@ -32,6 +32,18 @@ $bg-col: #f7f7f7;
     gap: 1em;
     font-size: 1.8em;
 
+    .img-link{
+        border-radius: 50%;
+    }
+
+    .profile-image-link{
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        
+
+    }
+
     @include sm {
         font-size: 1.4em;
     }
