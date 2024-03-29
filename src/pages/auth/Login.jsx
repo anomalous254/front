@@ -11,11 +11,14 @@ export const action = async ({ request }) => {
     const credentials = { username, password };
     try {
         localStorage.setItem('username', credentials.username);
-        toast.success('login successfuly!!', { theme: 'dark' });
+        toast.success('login successfuly!!', {
+            theme: 'dark',
+            autoClose: 3000,
+        });
         return redirect('/dashboard');
     } catch (error) {
         const errormsg = error.response.data.detail;
-        toast.error(errormsg, { theme: 'dark' });
+        toast.error(errormsg, { theme: 'dark', autoClose: 3000 });
         return null;
     }
 };
