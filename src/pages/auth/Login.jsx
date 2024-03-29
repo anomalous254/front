@@ -25,52 +25,50 @@ export const LoginPage = () => {
     const logingState = useNavigation();
 
     return (
-        <div className="login-container">
-            <img src={bot} alt="image" />
-            <div>
-                <div className="form-container">
-                    <div>
-                        <div className="login-header">
-                            <h2 className="login-text">Login</h2>
+        <div className="auth-container">
+            <div className='login-container'>
+                <img src={bot} alt="image" />
+                <div>
+                    <div className="form-container">
+                        <div>
+                            <div className="login-header">
+                                <h2 className="login-text">Login</h2>
+                            </div>
                         </div>
-                    </div>
 
-                    <div>
-                        <Form
-                            method="post"
-                            replace
-                            className="login-form-inputs"
-                        >
-                            <label id="email">Username</label>
-                            <input
-                                type="text"
-                                name="username"
-                                className="input"
-                            />
+                        <div>
+                            <Form method="post" replace className='auth-form'>
+                                <label id="email">Username</label>
+                                <input
+                                    type="text"
+                                    name="username"
+                                    className="input"
+                                />
 
-                            <label id="password">Password</label>
-                            <input
-                                type="password"
-                                name="password"
-                                id="password"
-                                className="input"
-                            />
-                            <input
-                                type="submit"
-                                value={
-                                    logingState.state === 'idle'
-                                        ? 'Login'
-                                        : 'Loging in...'
-                                }
-                            />
-                        </Form>
-                        <div className="login-redirects">
-                            <p className="">
-                                dont have an account ???{' '}
-                                <span>
-                                    <Link to="/register">Sign Up</Link>
-                                </span>
-                            </p>
+                                <label id="password">Password</label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    className="input"
+                                />
+                                <input
+                                    type="submit"
+                                    value={
+                                        logingState.state === 'idle'
+                                            ? 'Login'
+                                            : 'Loging in...'
+                                    }
+                                />
+                            </Form>
+                            <div className="login-redirects">
+                                <p className="">
+                                    dont have an account ???{' '}
+                                    <span>
+                                        <Link to="/register">Sign Up</Link>
+                                    </span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
