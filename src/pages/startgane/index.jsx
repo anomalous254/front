@@ -9,6 +9,7 @@ export const StartGame = () => {
     const [selectedLng, setSelectedLng] = React.useState('');
     const [selectedAvatar, setSelectedAvatar] = React.useState('');
     const [activeButton, setActiveButton] = React.useState(null);
+    const username = localStorage.getItem('username');
 
     const btnClicked = (val) => {
         setActiveButton(val);
@@ -16,6 +17,7 @@ export const StartGame = () => {
     };
     return (
         <div className="start-game">
+            <h2>Welcome back , {username}</h2>
             <div className="select-lng">
                 <h4>Select language</h4>
                 <div className="lang-btn">

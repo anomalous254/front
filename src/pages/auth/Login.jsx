@@ -1,25 +1,24 @@
 import React from 'react';
 import './index.scss';
 import { Form, redirect, useNavigation, Link } from 'react-router-dom';
-import { RiMenu2Line } from 'react-icons/ri';
 import bot from '../../assets/avatar/bot.png';
-/* import { toast } from "react-toastify"; */
+import { toast } from 'react-toastify';
 
-/* export const action = async ({ request }) => {
-  const loginData = await request.formData();
-  const email = loginData.get("email");
-  const password = loginData.get("password");
-  const credentials = { email, password };
-  try {
-    const resp = await loginUser(credentials);
-    toast.success("login successfuly!!", { theme: "dark" });
-    return redirect("/write");
-  } catch (error) {
-    const errormsg = error.response.data.detail;
-    toast.error(errormsg, { theme: "dark" });
-    return null;
-  }
-}; */
+export const action = async ({ request }) => {
+    const loginData = await request.formData();
+    const username = loginData.get('username');
+    const password = loginData.get('password');
+    const credentials = { username, password };
+    try {
+        localStorage.setItem('username', credentials.username);
+        toast.success('login successfuly!!', { theme: 'dark' });
+        return redirect('/dashboard');
+    } catch (error) {
+        const errormsg = error.response.data.detail;
+        toast.error(errormsg, { theme: 'dark' });
+        return null;
+    }
+};
 
 export const LoginPage = () => {
     const logingState = useNavigation();
@@ -65,7 +64,7 @@ export const LoginPage = () => {
                                 <p className="">
                                     dont have an account ???{' '}
                                     <span>
-                                        <Link to="/register">Sign Up</Link>
+                                        <Link to="#">Sign Up</Link>
                                     </span>
                                 </p>
                             </div>

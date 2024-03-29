@@ -3,6 +3,11 @@
 .start-game {
     position: relative;
     padding: 2em;
+    h2{
+        margin: .8em 0;
+        font-size: 1.3em;
+        color: rgb(32, 31, 31);
+    }
     .select-lng {
         h4 {
             color: gray;

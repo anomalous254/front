@@ -23,6 +23,7 @@ import {
     ProfileScores,
     LoginPage,
     RegisterPage,
+    LoginAction
 } from './pages';
 import { LoadingPage } from './components';
 
@@ -48,7 +49,7 @@ const routes = createBrowserRouter(
                 <Route path="leaderboard" element={<Leaderboard />} />
             </Route>
             <Route path="*" element={<PageNotFound />} />
-            <Route path="login" element={<LoginPage />} />
+            <Route path="login" element={<LoginPage />} action={LoginAction} />
             <Route path="register" element={<RegisterPage />} />
         </>
     )
