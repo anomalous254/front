@@ -25,52 +25,76 @@ export const RegisterPage = () => {
     const logingState = useNavigation();
 
     return (
-        <div className="login-container">
-            <img src={bot} alt="image" />
-            <div>
-                <div className="form-container">
-                    <div>
-                        <div className="login-header">
-                            <h2 className="login-text">Register</h2>
+        <div className="auth-container">
+            <div className="login-container">
+                <img src={bot} alt="image" />
+                <div>
+                    <div className="form-container">
+                        <div>
+                            <div className="login-header">
+                                <h2 className="login-text">Register</h2>
+                            </div>
                         </div>
-                    </div>
 
-                    <div>
-                        <Form
-                            method="post"
-                            replace
-                            className="login-form-inputs"
-                        >
-                            <label id="email">Username</label>
-                            <input
-                                type="text"
-                                name="username"
-                                className="input"
-                            />
+                        <div>
+                            <Form method="post" replace className="auth-form">
+                                <input
+                                    type="text"
+                                    name="username"
+                                    className="input"
+                                    placeholder="Username"
+                                />
+                                 <input
+                                    type="text"
+                                    name="username"
+                                    className="input"
+                                    placeholder="first name"
+                                />
+                                 <input
+                                    type="text"
+                                    name="username"
+                                    className="input"
+                                    placeholder="last name"
+                                />
 
-                            <label id="password">Password</label>
-                            <input
-                                type="password"
-                                name="password"
-                                id="password"
-                                className="input"
-                            />
-                            <input
-                                type="submit"
-                                value={
-                                    logingState.state === 'idle'
-                                        ? 'Login'
-                                        : 'Loging in...'
-                                }
-                            />
-                        </Form>
-                        <div className="login-redirects">
-                            <p className="">
-                                 have an account ???{' '}
-                                <span>
-                                    <Link to="/login">Login</Link>
-                                </span>
-                            </p>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    className="input"
+                                    placeholder="email"
+                                />
+
+                                <input
+                                    type="password"
+                                    name="password"
+                                    className="input"
+                                    placeholder="password"
+                                />
+
+                                <input
+                                    type="password"
+                                    name="re_password"
+                                    id="password"
+                                    className="input"
+                                    placeholder="confirm password"
+                                />
+                                <input
+                                    type="submit"
+                                    value={
+                                        logingState.state === 'idle'
+                                            ? 'Sign up'
+                                            : 'Creating account...'
+                                    }
+                                />
+                            </Form>
+                            <div className="login-redirects">
+                                <p className="">
+                                    dont have an account ???{' '}
+                                    <span>
+                                        <Link to="/login">Login</Link>
+                                    </span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

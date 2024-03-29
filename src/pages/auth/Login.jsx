@@ -26,7 +26,7 @@ export const LoginPage = () => {
 
     return (
         <div className="auth-container">
-            <div className='login-container'>
+            <div className="login-container">
                 <img src={bot} alt="image" />
                 <div>
                     <div className="form-container">
@@ -37,20 +37,20 @@ export const LoginPage = () => {
                         </div>
 
                         <div>
-                            <Form method="post" replace className='auth-form'>
-                                <label id="email">Username</label>
+                            <Form method="post" replace className="auth-form">
                                 <input
                                     type="text"
                                     name="username"
                                     className="input"
+                                    placeholder="username"
                                 />
 
-                                <label id="password">Password</label>
                                 <input
                                     type="password"
                                     name="password"
                                     id="password"
                                     className="input"
+                                    placeholder="password"
                                 />
                                 <input
                                     type="submit"
