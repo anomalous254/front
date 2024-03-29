@@ -1,7 +1,16 @@
 import React from 'react';
 import { Header, SideBar, Footer } from '../../components';
-import { Outlet } from 'react-router-dom';
+import { Outlet, redirect } from 'react-router-dom';
 import './index.scss';
+import { isAuthenticated } from '../../utils';
+
+export const loader = async () => {
+    const loggedIn = await isAuthenticated();
+    if (!loggedIn) {
+        return redirect('/login');
+    }
+    return null
+};
 
 export const DashboardLayout = () => {
     return (

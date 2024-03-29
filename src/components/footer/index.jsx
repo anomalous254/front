@@ -4,12 +4,13 @@ import { FaBookOpen } from 'react-icons/fa6';
 import { FaInfo } from 'react-icons/fa';
 import { IoGitBranch } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import privacyPolicy from '../../assets/docs/lulu-pp.pdf'
 
 export const Footer = () => {
     return (
         <div className="footer">
             <div className="footer-link">
-                <Link>
+                <Link to={privacyPolicy} target='_blank'>
                     <FaBookOpen className="footer-icon" />
                 </Link>
                 <p>Privacy policy</p>

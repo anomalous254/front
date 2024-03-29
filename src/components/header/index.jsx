@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom';
 import { FaBookOpen } from 'react-icons/fa6';
 import { FaInfo } from 'react-icons/fa';
 import { IoGitBranch } from 'react-icons/io5';
+import privacyPolicy from '../../assets/docs/lulu-pp.pdf';
 
 const user_image =
     'https://img.freepik.com/premium-vector/african-american-black-young-man-rhombus-vest-round-avatar-face-icon-flat-style_768258-2936.jpg';
@@ -31,9 +32,16 @@ export const Header = () => {
                     >
                         <FaGlobe />
                     </Link>
-                    <Link to="profile" className={user_image ? 'img-link' : null}>
+                    <Link
+                        to="profile"
+                        className={user_image ? 'img-link' : null}
+                    >
                         {user_image ? (
-                            <img src={user_image} className='profile-image-link' alt="image" />
+                            <img
+                                src={user_image}
+                                className="profile-image-link"
+                                alt="image"
+                            />
                         ) : (
                             <FaUser />
                         )}
@@ -90,7 +98,10 @@ export const Header = () => {
                                 </NavLink>
                                 <div className="footer-sm-screen">
                                     <div className="footer-sm-link">
-                                        <Link>
+                                        <Link
+                                            to={privacyPolicy}
+                                            target="_blank"
+                                        >
                                             <FaBookOpen className="footer-sm-icon" />
                                         </Link>
                                         <p>Privacy policy</p>
