@@ -9,16 +9,24 @@ export const action = async ({ request }) => {
     const username = loginData.get('username');
     const password = loginData.get('password');
     const credentials = { username, password };
+    const localStorageData = localStorage.getItem('userInfo');
+    const userData = JSON.parse(localStorageData);
     try {
-        localStorage.setItem('username', credentials.username);
-        toast.success('login successfuly!!', {
-            theme: 'dark',
-            autoClose: 3000,
-        });
-        return redirect('/dashboard');
+        if (userData.username === credentials.username) {
+            toast.success('login successfuly!!', {
+                theme: 'dark',
+                autoClose: 3000,
+            });
+            return redirect('/dashboard');
+        } else {
+            toast.error('acccount not found !', {
+                theme: 'dark',
+                autoClose: 3000,
+            });
+            return redirect('/login');
+        }
     } catch (error) {
-        const errormsg = error.response.data.detail;
-        toast.error(errormsg, { theme: 'dark', autoClose: 3000 });
+        toast.error('acccount not found !', { theme: 'dark', autoClose: 3000 });
         return null;
     }
 };
@@ -67,7 +75,7 @@ export const LoginPage = () => {
                                 <p className="">
                                     dont have an account ???{' '}
                                     <span>
-                                        <Link to="#">Sign Up</Link>
+                                        <Link to="/register">Sign Up</Link>
                                     </span>
                                 </p>
                             </div>

@@ -7,7 +7,7 @@ export const isAuthenticated = async () => {
 
 export const verifyToken = async () => {
     try {
-        const username = localStorage.getItem('username');
+        const username = localStorage.getItem('userInfo');
         return username ? true : false;
     } catch (err) {
         return false;

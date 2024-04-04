@@ -7,4 +7,4 @@ export { Words } from './words';
 export { ProfileInfo } from './profile/info';
 export { ProfileScores } from './profile/scores';
 export { LoginPage, action as LoginAction } from './auth/Login';
-export { RegisterPage } from './auth/Register';
+export { RegisterPage, action as RegisterAction } from './auth/Register';

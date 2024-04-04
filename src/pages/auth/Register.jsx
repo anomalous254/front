@@ -1,25 +1,39 @@
 import React from 'react';
 import './index.scss';
 import { Form, redirect, useNavigation, Link } from 'react-router-dom';
-import { RiMenu2Line } from 'react-icons/ri';
 import bot from '../../assets/avatar/bot.png';
-/* import { toast } from "react-toastify"; */
+import { toast } from 'react-toastify';
 
-/* export const action = async ({ request }) => {
-  const loginData = await request.formData();
-  const email = loginData.get("email");
-  const password = loginData.get("password");
-  const credentials = { email, password };
-  try {
-    const resp = await loginUser(credentials);
-    toast.success("login successfuly!!", { theme: "dark" });
-    return redirect("/write");
-  } catch (error) {
-    const errormsg = error.response.data.detail;
-    toast.error(errormsg, { theme: "dark" });
-    return null;
-  }
-}; */
+export const action = async ({ request }) => {
+    const loginData = await request.formData();
+    const email = loginData.get('email');
+    const username = loginData.get('username');
+    const first_name = loginData.get('first_name');
+    const last_name = loginData.get('last_name');
+    const country = loginData.get('country');
+    const password = loginData.get('password');
+    const re_assword = loginData.get('re_password');
+    const contact = loginData.get('phone');
+    const credentials = {
+        email,
+        username,
+        first_name,
+        last_name,
+        country,
+        password,
+        re_assword,
+        contact,
+    };
+    try {
+        localStorage.setItem('userInfo', JSON.stringify(credentials));
+        toast.success('Accout created successfuly!!', { theme: 'dark' });
+        return redirect('/login');
+    } catch (error) {
+        const errormsg = error.response.data.detail;
+        toast.error(errormsg, { theme: 'dark' });
+        return null;
+    }
+};
 
 export const RegisterPage = () => {
     const logingState = useNavigation();
@@ -43,18 +57,21 @@ export const RegisterPage = () => {
                                     name="username"
                                     className="input"
                                     placeholder="Username"
+                                    required
                                 />
-                                 <input
+                                <input
                                     type="text"
-                                    name="username"
+                                    name="first_name"
                                     className="input"
                                     placeholder="first name"
+                                    required
                                 />
-                                 <input
+                                <input
                                     type="text"
-                                    name="username"
+                                    name="last_name"
                                     className="input"
                                     placeholder="last name"
+                                    required
                                 />
 
                                 <input
@@ -62,6 +79,21 @@ export const RegisterPage = () => {
                                     name="email"
                                     className="input"
                                     placeholder="email"
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    name="country"
+                                    className="input"
+                                    placeholder="country"
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    name="phone"
+                                    className="input"
+                                    placeholder="phone number"
+                                    required
                                 />
 
                                 <input
@@ -69,6 +101,7 @@ export const RegisterPage = () => {
                                     name="password"
                                     className="input"
                                     placeholder="password"
+                                    required
                                 />
 
                                 <input
@@ -77,6 +110,7 @@ export const RegisterPage = () => {
                                     id="password"
                                     className="input"
                                     placeholder="confirm password"
+                                    required
                                 />
                                 <input
                                     type="submit"

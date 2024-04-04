@@ -3,29 +3,16 @@ import './index.scss';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { FaRegBell } from 'react-icons/fa6';
 import { Link, NavLink, Outlet } from 'react-router-dom';
-
-const data = {
-    name: 'Kwame Nkuruma',
-    contact: '+234-123-456-789',
-    country: 'Nigeria',
-    email: 'Kwame@gmail.com',
-    languages_scores: [
-        { name: 'swahili', points: 200 },
-        { name: 'igbo', points: 90 },
-        { name: 'yoruba', points: 320 },
-        { name: 'hausa', points: 300 },
-    ],
-    rank: '56',
-    points: '321',
-    image: 'https://img.freepik.com/premium-vector/african-american-black-young-man-rhombus-vest-round-avatar-face-icon-flat-style_768258-2936.jpg',
-};
+import { useSelector } from 'react-redux';
+import { selectUserInfo } from '../../features';
 
 export const ProfileLayout = () => {
+    const userInfo = useSelector(selectUserInfo);
     return (
         <div className="profile">
             <div className="upper-section">
                 <div className="nav-bar">
-                    <Link to='..' relative='path'>
+                    <Link to=".." relative="path">
                         <MdKeyboardArrowLeft className="profile-icon arrow" />
                     </Link>
                     <Link>
@@ -39,15 +26,15 @@ export const ProfileLayout = () => {
             </div>
             <div className="lower-section">
                 <div className="profile-info">
-                    <img src={data.image} alt="image" />
-                    <p>{data.name}</p>
+                    <img src={userInfo?.image} alt="image" />
+                    <p>{userInfo?.username}</p>
                 </div>
                 <div className="profile-links">
                     <NavLink>Personal info</NavLink>
-                    <NavLink to='scores'>Scores</NavLink>
+                    <NavLink to="scores">Scores</NavLink>
                 </div>
                 <div className="profile-outlet">
-                    <Outlet context={{ data: data }} />
+                    <Outlet context={{ data: userInfo }} />
                 </div>
             </div>
         </div>
