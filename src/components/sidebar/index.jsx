@@ -43,8 +43,9 @@ export const SideBar = () => {
                 className={({ isActive }) =>
                     isActive ? 'active-link' : 'link'
                 }
+                onClick={() => localStorage.removeItem('userInfo')}
             >
-                Quit
+                Logout
             </NavLink>
         </div>
     );
