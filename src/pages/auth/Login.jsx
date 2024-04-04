@@ -3,6 +3,8 @@ import './index.scss';
 import { Form, redirect, useNavigation, Link } from 'react-router-dom';
 import bot from '../../assets/avatar/bot.png';
 import { toast } from 'react-toastify';
+import { getUserInfo } from '../../features';
+import { useDispatch } from 'react-redux';
 
 export const action = async ({ request }) => {
     const loginData = await request.formData();
@@ -32,6 +34,9 @@ export const action = async ({ request }) => {
 };
 
 export const LoginPage = () => {
+    const dispatch = useDispatch();
+    const userDataInfo = JSON.parse(localStorage.getItem('userInfo'));
+    dispatch(getUserInfo(userDataInfo));
     const logingState = useNavigation();
 
     return (

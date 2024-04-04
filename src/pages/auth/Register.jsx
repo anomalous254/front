@@ -24,8 +24,25 @@ export const action = async ({ request }) => {
         re_assword,
         contact,
     };
+    const data = {
+        username,
+        first_name,
+        last_name,
+        contact,
+        country,
+        email,
+        languages_scores: [
+            { name: 'swahili', points: 0 },
+            { name: 'igbo', points: 0 },
+            { name: 'yoruba', points: 0 },
+            { name: 'hausa', points: 0 },
+        ],
+        rank: '0',
+        points: '0',
+        image: 'https://img.freepik.com/premium-vector/african-american-black-young-man-rhombus-vest-round-avatar-face-icon-flat-style_768258-2936.jpg',
+    };
     try {
-        localStorage.setItem('userInfo', JSON.stringify(credentials));
+        localStorage.setItem('userInfo', JSON.stringify(data));
         toast.success('Accout created successfuly!!', { theme: 'dark' });
         return redirect('/login');
     } catch (error) {

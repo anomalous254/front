@@ -3,39 +3,10 @@ import './index.scss';
 import { useAvatar } from '../../hooks';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectUserInfo, getUserInfo } from '../../features';
-import { useDispatch } from 'react-redux';
-
-const userData = JSON.parse(localStorage.getItem('userInfo'));
-
-let dataInfo = {}
-
-if (userData !== null) {
-    const data = {
-        username: userData?.username,
-        first_name: userData?.first_name,
-        last_name: userData?.last_name,
-        contact: userData?.contact,
-        country: userData?.country,
-        email: userData?.email,
-        languages_scores: [
-            { name: 'swahili', points: 0 },
-            { name: 'igbo', points: 0 },
-            { name: 'yoruba', points: 0 },
-            { name: 'hausa', points: 0 },
-        ],
-        rank: '0',
-        points: '0',
-        image: 'https://img.freepik.com/premium-vector/african-american-black-young-man-rhombus-vest-round-avatar-face-icon-flat-style_768258-2936.jpg',
-    };
-
-    dataInfo = data
-}
+import { selectUserInfo } from '../../features';
 
 const languges = ['Yoruba', 'Swahili', 'Hausa', 'Igbo'];
 export const StartGame = () => {
-    const dispatch = useDispatch();
-    dispatch(getUserInfo(dataInfo));
     const userInfo = useSelector(selectUserInfo);
     const avatar = useAvatar();
     const [selectedLng, setSelectedLng] = React.useState('');

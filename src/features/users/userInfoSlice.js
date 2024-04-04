@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { useSelector } from 'react-redux';
 
 const initialState = {
     data: {},
@@ -12,9 +11,12 @@ export const userInfoSlice = createSlice({
         getUserInfo(state, action) {
             state.data = action.payload;
         },
+        logOutUserInfo(state, action) {
+            state.data = action.payload;
+        },
     },
 });
 
-export const { getUserInfo } = userInfoSlice.actions;
+export const { getUserInfo, logOutUserInfo } = userInfoSlice.actions;
 export const selectUserInfo = (state) => state.userInfo.data;
 export default userInfoSlice.reducer;

@@ -1,1 +1,1 @@
-export { selectUserInfo, getUserInfo } from './users/userInfoSlice';
+export { selectUserInfo, getUserInfo, logOutUserInfo } from './users/userInfoSlice';
