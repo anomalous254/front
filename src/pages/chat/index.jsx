@@ -58,19 +58,19 @@ export const Game = () => {
                         {messages.map((message, index) => (
                             <div className="msg-container">
                                 {message.user ? (
-                                    <div className="user">
+                                    <div className="msg user">
                                         <div key={index} className="message">
-                                            {message.user}
+                                            <small> {message.user}</small>
                                         </div>
                                         <img src={icon} alt="avatar" />
                                     </div>
                                 ) : null}
 
                                 {message.bot ? (
-                                    <div className="bot">
+                                    <div className="msg bot">
                                         <img src={botimg} alt="bot" />
                                         <div key={index} className="message">
-                                            {message.bot}
+                                            <small>{message.bot}</small>
                                         </div>
                                     </div>
                                 ) : null}

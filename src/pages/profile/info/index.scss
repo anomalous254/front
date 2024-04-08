@@ -1,3 +1,4 @@
+@import '../../../responsive.scss';
 .profile-information {
     display: grid;
     gap: 0.7em;
@@ -5,23 +6,26 @@
     .info {
         background-color: white;
         padding: 1em;
-        border-radius: .3em;
+        border-radius: 0.3em;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
             0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
-        .info-profile-container{
+        .info-profile-container {
             color: gray;
             display: flex;
             align-items: center;
-            gap: .5em;
-            margin-bottom: .9em;
+            gap: 0.5em;
+            margin-bottom: 0.9em;
 
-            .info-icon{
+            .info-icon {
                 font-size: 1.2rem;
             }
         }
-        p{
+        p {
             margin-left: 1em;
+            @include sm {
+                font-size: 0.8em;
+            }
         }
     }
 }

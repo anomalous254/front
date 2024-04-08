@@ -16,7 +16,7 @@
         height: 100%;
         padding: 2em;
 
-        @include sm{
+        @include sm {
             padding: 0;
         }
         .greeting {
@@ -30,8 +30,8 @@
                 font-size: 0.8em;
                 height: fit-content;
                 margin-right: 3em;
-                @include sm{
-                    font-size: .7em;
+                @include sm {
+                    font-size: 0.7em;
                 }
                 span {
                     font-weight: bold;
@@ -91,12 +91,14 @@
             width: 100%;
         }
         .msg-container {
-            .user {
+            .msg {
                 display: flex;
-                align-items: center;
-                justify-content: right;
-                gap: 0.5em;
-                @include sm{
+                gap: .6em;
+            }
+            .user {
+                justify-content: flex-end;
+                margin: 0.9em 0;
+                @include sm {
                     justify-content: right;
                 }
                 img {
@@ -105,19 +107,17 @@
                 .message {
                     background-color: #2d9bf0;
                     color: white;
+                    max-width: 60%;
                     padding: 0.4em;
                     border-radius: 0.4em;
-                    margin-left: 3em;
-                    @include sm{
-                        font-size: .75em;
+                    height: fit-content;
+                    @include sm {
+                        font-size: 0.75em;
                     }
                 }
             }
             .bot {
-                display: flex;
-                align-items: center;
-                justify-content: left;
-                text-align: left;
+                justify-content: flex-start;
                 img {
                     height: 8vh;
                 }
@@ -125,9 +125,11 @@
                     background-color: white;
                     padding: 0.4em;
                     border-radius: 0.4em;
-                    margin-right: 3em;
-                    @include sm{
-                        font-size: .75em;
+                    max-width: 60%;
+                    height: fit-content;
+
+                    @include sm {
+                        font-size: 0.75em;
                     }
                 }
             }

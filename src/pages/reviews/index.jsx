@@ -28,7 +28,6 @@ export const ReviewList = () => {
         <div>
             <div className="overall_review">
                 <div className="avarage-rating">
-                    
                     <h2>
                         Avarage Rating <span>{avarageRate}</span>
                     </h2>
@@ -49,7 +48,19 @@ export const ReviewList = () => {
 };
 
 const ReviewCard = ({ name, comment, likes, loves, stars, image }) => {
+    const [like, setLike] = React.useState(likes);
+    const [love, setLove] = React.useState(loves);
     const stars_count = useStarRenderer(stars);
+
+    const setReaction = (reaction) => {
+        if (reaction === 'like') {
+            setLike(likes + 1);
+        }
+        else{
+            setLove(loves + 1)
+        }
+    };
+
     return (
         <div className="review-card">
             <div className="profile">
@@ -68,12 +79,18 @@ const ReviewCard = ({ name, comment, likes, loves, stars, image }) => {
             </div>
             <div className="review-icons">
                 <small>
-                    <FcLike onClick={() => loves + 1} className="r-icon" />{' '}
-                    {loves}
+                    <FcLike
+                        onClick={() => setReaction('love')}
+                        className="r-icon"
+                    />{' '}
+                    {love}
                 </small>
                 <small>
-                    <AiFillLike className="r-icon" />
-                    {likes}
+                    <AiFillLike
+                        onClick={() => setReaction('like')}
+                        className="r-icon"
+                    />
+                    {like}
                 </small>
             </div>
         </div>
