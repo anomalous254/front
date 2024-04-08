@@ -26,6 +26,12 @@ export const Game = () => {
         }
     };
 
+    const handleKeyPress = (e) => {
+        if(e.key === 'Enter'){
+            sendMessage()
+        }
+    }
+
     // Function to scroll chat window to the bottom
     const scrollToBottom = () => {
         chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
@@ -85,6 +91,7 @@ export const Game = () => {
                     type="text"
                     placeholder="Type answer"
                     value={inputValue}
+                    onKeyPress={handleKeyPress}
                     onChange={(e) => setInputValue(e.target.value)}
                 />
                 <button onClick={sendMessage}>Send</button>
