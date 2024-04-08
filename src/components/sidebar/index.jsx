@@ -3,24 +3,10 @@ import './index.scss';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logOutUserInfo } from '../../features';
-
-const data = {
-    username: '',
-    first_name: '',
-    last_name: '',
-    contact: '',
-    country: '',
-    email: '',
-    languages_scores: [
-        { name: 'swahili', points: 0 },
-        { name: 'igbo', points: 0 },
-        { name: 'yoruba', points: 0 },
-        { name: 'hausa', points: 0 },
-    ],
-    rank: '0',
-    points: '0',
-    image: 'https://img.freepik.com/premium-vector/african-american-black-young-man-rhombus-vest-round-avatar-face-icon-flat-style_768258-2936.jpg',
-};
+import { FaCirclePlay } from 'react-icons/fa6';
+import { RiLogoutBoxLine } from 'react-icons/ri';
+import { FaLanguage } from 'react-icons/fa';
+import { MdOutlineRateReview, MdLeaderboard  } from 'react-icons/md';
 
 export const SideBar = () => {
     const dispatch = useDispatch();
@@ -34,6 +20,7 @@ export const SideBar = () => {
                     isActive ? 'active-link' : 'link'
                 }
             >
+                <FaCirclePlay className="sidebar-icon" />
                 Play
             </NavLink>
             <NavLink
@@ -42,6 +29,7 @@ export const SideBar = () => {
                     isActive ? 'active-link' : 'link'
                 }
             >
+                <FaLanguage className="sidebar-icon" />
                 Words
             </NavLink>
             <NavLink
@@ -50,6 +38,7 @@ export const SideBar = () => {
                     isActive ? 'active-link' : 'link'
                 }
             >
+                <MdOutlineRateReview className="sidebar-icon" />
                 Tribe reviews
             </NavLink>
             <NavLink
@@ -58,6 +47,7 @@ export const SideBar = () => {
                     isActive ? 'active-link' : 'link'
                 }
             >
+                 <MdLeaderboard className="sidebar-icon" />
                 Leaderboard
             </NavLink>
             <NavLink
@@ -66,6 +56,7 @@ export const SideBar = () => {
                     isActive ? 'active-link' : 'link'
                 }
             >
+                 <RiLogoutBoxLine className="sidebar-icon" />
                 Logout
             </NavLink>
         </div>

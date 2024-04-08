@@ -4,6 +4,7 @@ import { useAvatar } from '../../hooks';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUserInfo } from '../../features';
+import { VscDebugStart } from "react-icons/vsc";
 
 const languges = ['Yoruba', 'Swahili', 'Hausa', 'Igbo'];
 export const StartGame = () => {
@@ -71,7 +72,9 @@ export const StartGame = () => {
                                     language: selectedLng,
                                 }}
                             >
-                                <button>Start game</button>
+                                <button>
+                                    Start
+                                </button>
                             </Link>
                         ) : null}
                     </div>
