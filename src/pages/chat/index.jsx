@@ -60,7 +60,7 @@ export const Game = () => {
                                 {message.user ? (
                                     <div className="msg user">
                                         <div key={index} className="message">
-                                            <small> {message.user}</small>
+                                            <picture> {message.user}</picture>
                                         </div>
                                         <img src={icon} alt="avatar" />
                                     </div>
@@ -70,7 +70,7 @@ export const Game = () => {
                                     <div className="msg bot">
                                         <img src={botimg} alt="bot" />
                                         <div key={index} className="message">
-                                            <small>{message.bot}</small>
+                                            <p>{message.bot}</p>
                                         </div>
                                     </div>
                                 ) : null}
