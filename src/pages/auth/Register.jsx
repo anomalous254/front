@@ -76,20 +76,7 @@ export const RegisterPage = () => {
                                     placeholder="Username"
                                     required
                                 />
-                                <input
-                                    type="text"
-                                    name="first_name"
-                                    className="input"
-                                    placeholder="first name"
-                                    required
-                                />
-                                <input
-                                    type="text"
-                                    name="last_name"
-                                    className="input"
-                                    placeholder="last name"
-                                    required
-                                />
+                                
 
                                 <input
                                     type="email"
@@ -103,13 +90,6 @@ export const RegisterPage = () => {
                                     name="country"
                                     className="input"
                                     placeholder="country"
-                                    required
-                                />
-                                <input
-                                    type="text"
-                                    name="phone"
-                                    className="input"
-                                    placeholder="phone number"
                                     required
                                 />
 
