@@ -3,7 +3,7 @@ import logo from '../../assets/img/logo.png';
 import { FaGlobe } from 'react-icons/fa6';
 import { FaUser } from 'react-icons/fa';
 import './index.scss';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { RiMenu3Fill } from 'react-icons/ri';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { NavLink } from 'react-router-dom';
@@ -17,6 +17,7 @@ const user_image =
 
 export const Header = () => {
     const [showMenu, setShowMenu] = React.useState(false);
+    const path = useLocation();
 
     return (
         <React.Fragment>
@@ -35,6 +36,7 @@ export const Header = () => {
                     <Link
                         to="profile"
                         className={user_image ? 'img-link' : null}
+                        state={{ pathname: path.pathname }}
                     >
                         {user_image ? (
                             <img

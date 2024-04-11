@@ -5,10 +5,11 @@ import { FcLike } from 'react-icons/fc';
 import { AiFillLike } from 'react-icons/ai';
 import { IoMdStar } from 'react-icons/io';
 import { useStarRenderer } from '../../hooks';
+import { WriteReviews } from '../../components';
 
 export const ReviewList = () => {
     const reviews = useReviews() || [];
-
+    const [toggleWrite, setToggleWrite] = React.useState(false);
     const [avarageRate, setAvarageRate] = React.useState(0);
     React.useEffect(() => {
         let total = 0;
@@ -39,6 +40,12 @@ export const ReviewList = () => {
                 </div>
             </div>
             <div className="reviews">
+                <div className="write__review__container">
+                    <button onClick={() => setToggleWrite(!toggleWrite)}>
+                        Write
+                    </button>
+                    {toggleWrite && <WriteReviews />}
+                </div>
                 {reviews.map((review) => (
                     <ReviewCard key={review.id} {...review} />
                 ))}
@@ -55,9 +62,8 @@ const ReviewCard = ({ name, comment, likes, loves, stars, image }) => {
     const setReaction = (reaction) => {
         if (reaction === 'like') {
             setLike(likes + 1);
-        }
-        else{
-            setLove(loves + 1)
+        } else {
+            setLove(loves + 1);
         }
     };
 

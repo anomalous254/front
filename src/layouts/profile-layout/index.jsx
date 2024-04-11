@@ -2,12 +2,13 @@ import React from 'react';
 import './index.scss';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { FaRegBell } from 'react-icons/fa6';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUserInfo } from '../../features';
 
 export const ProfileLayout = () => {
     const userInfo = useSelector(selectUserInfo);
+    const back_path = useLocation();
     return (
         <div className="profile">
             <div className="upper-section">

@@ -55,6 +55,21 @@
         margin: 1em 0;
     }
 
+    .write__review__container {
+        button {
+            outline: none;
+            padding: 1em;
+            border: none;
+            width: 100%;
+            background-color: #0b86e4;
+            border-radius: 0.5em;
+            cursor: pointer;
+            margin-bottom: 1em;
+            color: white;
+            font-weight: bold;
+        }
+    }
+
     .review-card {
         background-color: white;
         padding: 0.5em;

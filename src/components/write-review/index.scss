@@ -1,0 +1,27 @@
+.write__review {
+    background-color: white;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border-radius: .8em;
+
+    textarea {
+        width: 100%;
+        padding: .7em;
+        border: none;
+        outline: none;
+        border: 1px solid lightgray;
+        border-radius: .4em;
+    }
+
+    input{
+        border: none;
+        outline: none;
+        padding: 1em;
+        border: 1px solid lightgray;
+        border-radius: .4em;
+
+    }
+    
+}
