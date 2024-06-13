@@ -5,38 +5,28 @@ import bot from '../../assets/avatar/bot.png';
 import { toast } from 'react-toastify';
 import { getUserInfo } from '../../features';
 import { useDispatch } from 'react-redux';
+import { loginUser } from '../../services/loginUser';
 
 export const action = async ({ request }) => {
     const loginData = await request.formData();
-    const username = loginData.get('username');
+    const email = loginData.get('email');
     const password = loginData.get('password');
-    const credentials = { username, password };
-    const localStorageData = localStorage.getItem('userInfo');
-    const userData = JSON.parse(localStorageData);
+    const credentials = { email, password };
     try {
-        if (userData.username === credentials.username) {
-            toast.success('login successfuly!!', {
-                theme: 'dark',
-                autoClose: 3000,
-            });
-            return redirect('/dashboard');
-        } else {
-            toast.error('acccount not found !', {
-                theme: 'dark',
-                autoClose: 3000,
-            });
-            return redirect('/login');
-        }
+        const reponse =  await loginUser(credentials);
+        toast.success('succesfully logged in!', {
+            theme: 'dark',
+            autoClose: 3000,
+        });
+        return redirect('/dashboard');
     } catch (error) {
+        console.log(error);
         toast.error('acccount not found !', { theme: 'dark', autoClose: 3000 });
         return null;
     }
 };
 
 export const LoginPage = () => {
-    const dispatch = useDispatch();
-    const userDataInfo = JSON.parse(localStorage.getItem('userInfo'));
-    dispatch(getUserInfo(userDataInfo));
     const logingState = useNavigation();
 
     return (
@@ -55,9 +45,9 @@ export const LoginPage = () => {
                             <Form method="post" replace className="auth-form">
                                 <input
                                     type="text"
-                                    name="username"
+                                    name="email"
                                     className="input"
-                                    placeholder="username"
+                                    placeholder="email"
                                 />
 
                                 <input

@@ -4,10 +4,12 @@ import { useAvatar } from '../../hooks';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUserInfo } from '../../features';
-import { VscDebugStart } from "react-icons/vsc";
+import { VscDebugStart } from 'react-icons/vsc';
+import { useUserData } from '../../hooks';
 
 const languges = ['Yoruba', 'Swahili', 'Hausa', 'Igbo'];
 export const StartGame = () => {
+    const { user } = useUserData();
     const userInfo = useSelector(selectUserInfo);
     const avatar = useAvatar();
     const [selectedLng, setSelectedLng] = React.useState('');
@@ -20,7 +22,7 @@ export const StartGame = () => {
     };
     return (
         <div className="start-game">
-            <h3>Welcome back , {userInfo?.username}</h3>
+            <h3>Hello there, {user?.first_name }</h3>
             <div className="select-lng">
                 <h4>Select language</h4>
                 <div className="lang-btn">
@@ -72,9 +74,7 @@ export const StartGame = () => {
                                     language: selectedLng,
                                 }}
                             >
-                                <button>
-                                    Start
-                                </button>
+                                <button>Start</button>
                             </Link>
                         ) : null}
                     </div>

@@ -3,29 +3,27 @@ import './index.scss';
 import { Form, redirect, useNavigation, Link } from 'react-router-dom';
 import bot from '../../assets/avatar/bot.png';
 import { toast } from 'react-toastify';
+import { registerUser } from '../../services/registerUser';
 
 export const action = async ({ request }) => {
     const loginData = await request.formData();
     const email = loginData.get('email');
-    const username = loginData.get('username');
     const first_name = loginData.get('first_name');
     const last_name = loginData.get('last_name');
     const country = loginData.get('country');
     const password = loginData.get('password');
-    const re_assword = loginData.get('re_password');
+    const re_password = loginData.get('re_password');
     const contact = loginData.get('phone');
     const credentials = {
         email,
-        username,
         first_name,
         last_name,
         country,
         password,
-        re_assword,
+        re_password,
         contact,
     };
     const data = {
-        username,
         first_name,
         last_name,
         contact,
@@ -42,7 +40,7 @@ export const action = async ({ request }) => {
         image: 'https://img.freepik.com/premium-vector/african-american-black-young-man-rhombus-vest-round-avatar-face-icon-flat-style_768258-2936.jpg',
     };
     try {
-        localStorage.setItem('userInfo', JSON.stringify(data));
+        const response = await registerUser(credentials);
         toast.success('Accout created successfuly!!', { theme: 'dark' });
         return redirect('/login');
     } catch (error) {
@@ -71,12 +69,19 @@ export const RegisterPage = () => {
                             <Form method="post" replace className="auth-form">
                                 <input
                                     type="text"
-                                    name="username"
+                                    name="first_name"
                                     className="input"
-                                    placeholder="Username"
+                                    placeholder="First name"
                                     required
                                 />
-                                
+
+                                <input
+                                    type="text"
+                                    name="last_name"
+                                    className="input"
+                                    placeholder="Last name"
+                                    required
+                                />
 
                                 <input
                                     type="email"

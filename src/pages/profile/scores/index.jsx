@@ -3,34 +3,34 @@ import './index.scss';
 import { useOutletContext } from 'react-router-dom';
 
 export const ProfileScores = () => {
-    const { data: profileData } = useOutletContext();
-    const languageScores = profileData.languages_scores || [];
+    const { lang, ranks } = useOutletContext();
 
     return (
         <div className="profile-scores">
             <div className="ranking">
                 <p>
-                    Total points <span>{profileData.points}</span>
+                    Total points <span>{ranks?.total_points}</span>
                 </p>
                 <p>
-                    Rank <span>#{profileData.rank}</span>
+                    Rank <span>#{ranks?.rank}</span>
                 </p>
             </div>
 
             <h3>Points</h3>
 
             <div className="languges-scores">
-              
-              {languageScores.map(score => <LangaugeScoreCard key={score.name} {...score} />)}
+                {lang?.map((score) => (
+                    <LangaugeScoreCard key={score.language} {...score} />
+                ))}
             </div>
         </div>
     );
 };
 
-const LangaugeScoreCard = ({ name, points }) => {
+const LangaugeScoreCard = ({ language, points }) => {
     return (
-        <div className='score-card'>
-            <p>{name.charAt(0).toUpperCase() + name.slice(1)}</p>
+        <div className="score-card">
+            <p>{language.charAt(0).toUpperCase() + language.slice(1)}</p>
             <small>{points}</small>
         </div>
     );

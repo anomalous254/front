@@ -1,44 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './index.scss';
-import { Form, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import botimg from '../../assets/avatar/bot.png';
-
-const botData = [
-    {
-        bot: 'hello there ?',
-    },
-];
+import { chat } from '../../services/bot';
+import ReactMarkdown from 'react-markdown';
 
 export const Game = () => {
-    const [messages, setMessages] = React.useState(botData);
-    const [inputValue, setInputValue] = React.useState('');
-    const chatHistoryRef = React.useRef(null);
+    const [messages, setMessages] = useState([]);
+    const [inputValue, setInputValue] = useState('');
+    const [typing, setTyping] = useState(false);
+    const chatHistoryRef = useRef(null);
     const data = useLocation() || null;
     const { icon, language } = data?.state || '';
 
-    const sendMessage = () => {
+    const sendMessage = async () => {
         if (inputValue.trim() !== '') {
-            setMessages([
-                ...messages,
-                { user: inputValue, bot: 'This is a simulated bot reply.' },
+            // Add user message to the chat
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                { role: 'user', content: inputValue },
             ]);
             setInputValue('');
+            setTyping(true);
+
+            try {
+                const botReply = await chat(inputValue, messages);
+                setMessages((prevMessages) => [
+                    ...prevMessages,
+                    { role: 'system', content: botReply.content },
+                ]);
+            } catch (error) {
+                console.error('Error getting bot response:', error);
+                setMessages((prevMessages) => [
+                    ...prevMessages,
+                    { bot: 'Error getting response from bot.' },
+                ]);
+            } finally {
+                setTyping(false);
+            }
         }
     };
 
     const handleKeyPress = (e) => {
-        if(e.key === 'Enter'){
-            sendMessage()
+        if (e.key === 'Enter') {
+            sendMessage();
         }
-    }
+    };
 
     // Function to scroll chat window to the bottom
     const scrollToBottom = () => {
-        chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
+        if (chatHistoryRef.current) {
+            chatHistoryRef.current.scrollTop =
+                chatHistoryRef.current.scrollHeight;
+        }
     };
 
     // Scroll to bottom whenever messages change
-    React.useEffect(() => {
+    useEffect(() => {
         scrollToBottom();
     }, [messages]);
 
@@ -53,8 +71,8 @@ export const Game = () => {
                             assistant
                         </span>
                         <br />
-                        i'm here to help you learn a language quickly and
-                        effectively. Lets play the <span>{language}</span> game
+                        I'm here to help you learn a language quickly and
+                        effectively. Let's play the <span>{language}</span> game
                         :-)
                     </p>
                 </div>
@@ -62,26 +80,36 @@ export const Game = () => {
                 <div className="chat-box">
                     <div className="sender">
                         {messages.map((message, index) => (
-                            <div className="msg-container">
-                                {message.user ? (
+                            <div key={index} className="msg-container">
+                                {message.role === 'user' && (
                                     <div className="msg user">
-                                        <div key={index} className="message">
-                                            <picture> {message.user}</picture>
+                                        <div className="message">
+                                            <picture>{message.content}</picture>
                                         </div>
                                         <img src={icon} alt="avatar" />
                                     </div>
-                                ) : null}
+                                )}
 
-                                {message.bot ? (
+                                {message.role === 'system' && (
                                     <div className="msg bot">
                                         <img src={botimg} alt="bot" />
-                                        <div key={index} className="message">
-                                            <p>{message.bot}</p>
+                                        <div className="message">
+                                            <ReactMarkdown>
+                                                {message.content}
+                                            </ReactMarkdown>
                                         </div>
                                     </div>
-                                ) : null}
+                                )}
                             </div>
                         ))}
+                        {typing && (
+                            <div className="msg bot">
+                                <img src={botimg} alt="bot" />
+                                <div className="message">
+                                    <p>typing...</p>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

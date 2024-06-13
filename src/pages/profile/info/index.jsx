@@ -5,7 +5,7 @@ import { MdLocationPin, MdEmail } from 'react-icons/md';
 import { FaMobileAlt } from 'react-icons/fa';
 
 export const ProfileInfo = () => {
-    const { data: profileData } = useOutletContext();
+    const user = useOutletContext();
 
     return (
         <div className="profile-information">
@@ -14,21 +14,21 @@ export const ProfileInfo = () => {
                     <MdLocationPin className="info-icon" />
                     <small>Location</small>
                 </div>
-                <p>{profileData.country}</p>
+                <p>{user.data?.country}</p>
             </div>
-            <div className="info">
-            <div className="info-profile-container">
+            {/* <div className="info">
+                <div className="info-profile-container">
                     <FaMobileAlt className="info-icon" />
                     <small>Mobile</small>
                 </div>
-                <p>{profileData.contact}</p>
-            </div>
+                <p>{}</p>
+            </div> */}
             <div className="info">
-            <div className="info-profile-container">
+                <div className="info-profile-container">
                     <MdEmail className="info-icon" />
                     <small>Email</small>
                 </div>
-                <p>{profileData.email}</p>
+                <p>{user.data?.email}</p>
             </div>
         </div>
     );

@@ -7,8 +7,10 @@ export const isAuthenticated = async () => {
 
 export const verifyToken = async () => {
     try {
-        const username = localStorage.getItem('userInfo');
-        return username ? true : false;
+        const response = await api.post('auth/jwt/verify/');
+        const valid = response.data;
+        const validity = valid ? true : false;
+        return validity;
     } catch (err) {
         return false;
     }

@@ -11,13 +11,13 @@ import { FaBookOpen } from 'react-icons/fa6';
 import { FaInfo } from 'react-icons/fa';
 import { IoGitBranch } from 'react-icons/io5';
 import privacyPolicy from '../../assets/docs/lulu-pp.pdf';
-
-const user_image =
-    'https://img.freepik.com/premium-vector/african-american-black-young-man-rhombus-vest-round-avatar-face-icon-flat-style_768258-2936.jpg';
+import { useUserData } from '../../hooks';
 
 export const Header = () => {
     const [showMenu, setShowMenu] = React.useState(false);
     const path = useLocation();
+    const {user} = useUserData();
+ 
 
     return (
         <React.Fragment>
@@ -27,7 +27,7 @@ export const Header = () => {
                 </Link>
                 <div className="header-link">
                     <Link
-                        to="https://lulugame.vercel.app/"
+                        to="https://languageafrica.com/"
                         target="_blank"
                         className="landing-page"
                     >
@@ -35,12 +35,12 @@ export const Header = () => {
                     </Link>
                     <Link
                         to="profile"
-                        className={user_image ? 'img-link' : null}
+                        className={user?.profile_url ? 'img-link' : null}
                         state={{ pathname: path.pathname }}
                     >
-                        {user_image ? (
+                        {user?.profile_url ? (
                             <img
-                                src={user_image}
+                                src={user?.profile_url}
                                 className="profile-image-link"
                                 alt="image"
                             />

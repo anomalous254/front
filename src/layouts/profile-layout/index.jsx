@@ -3,11 +3,10 @@ import './index.scss';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { FaRegBell } from 'react-icons/fa6';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectUserInfo } from '../../features';
+import { useUserData } from '../../hooks';
 
 export const ProfileLayout = () => {
-    const userInfo = useSelector(selectUserInfo);
+    const { user, languages, ranking } = useUserData();
     const back_path = useLocation();
     return (
         <div className="profile">
@@ -27,15 +26,23 @@ export const ProfileLayout = () => {
             </div>
             <div className="lower-section">
                 <div className="profile-info">
-                    <img src={userInfo?.image} alt="image" />
-                    <p>{userInfo?.username}</p>
+                    <img src={user?.profile_url} alt="image" />
+                    <p>
+                        {user?.first_name} {user?.last_name}
+                    </p>
                 </div>
                 <div className="profile-links">
                     <NavLink>Personal info</NavLink>
                     <NavLink to="scores">Scores</NavLink>
                 </div>
                 <div className="profile-outlet">
-                    <Outlet context={{ data: userInfo }} />
+                    <Outlet
+                        context={{
+                            data: user,
+                            lang: languages,
+                            ranks: ranking,
+                        }}
+                    />
                 </div>
             </div>
         </div>
