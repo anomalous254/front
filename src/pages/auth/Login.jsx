@@ -14,7 +14,7 @@ export const action = async ({ request }) => {
     try {
         const reponse = await loginUser(credentials);
         toast.success('succesfully logged in!', {
-            theme: 'dark',
+            theme: 'light',
             autoClose: 3000,
         });
         return redirect('/dashboard');

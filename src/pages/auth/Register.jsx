@@ -30,7 +30,7 @@ export const action = async ({ request }) => {
         return redirect('/login');
     } catch (error) {
         const errormsg = error.response.data.detail;
-        toast.error(errormsg, { theme: 'dark' });
+        toast.error(errormsg, { theme: 'light' });
         return null;
     }
 };
