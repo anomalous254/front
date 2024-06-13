@@ -4,6 +4,7 @@ import { Form, redirect, useNavigation, Link } from 'react-router-dom';
 import bot from '../../assets/avatar/bot.png';
 import { toast } from 'react-toastify';
 import { registerUser } from '../../services/registerUser';
+import { ImSpinner3 } from 'react-icons/im';
 
 export const action = async ({ request }) => {
     const loginData = await request.formData();
@@ -23,22 +24,6 @@ export const action = async ({ request }) => {
         re_password,
         contact,
     };
-    const data = {
-        first_name,
-        last_name,
-        contact,
-        country,
-        email,
-        languages_scores: [
-            { name: 'swahili', points: 0 },
-            { name: 'igbo', points: 0 },
-            { name: 'yoruba', points: 0 },
-            { name: 'hausa', points: 0 },
-        ],
-        rank: '0',
-        points: '0',
-        image: 'https://img.freepik.com/premium-vector/african-american-black-young-man-rhombus-vest-round-avatar-face-icon-flat-style_768258-2936.jpg',
-    };
     try {
         const response = await registerUser(credentials);
         toast.success('Accout created successfuly!!', { theme: 'dark' });
@@ -51,7 +36,7 @@ export const action = async ({ request }) => {
 };
 
 export const RegisterPage = () => {
-    const logingState = useNavigation();
+    const registerState = useNavigation();
 
     return (
         <div className="auth-container">
@@ -114,14 +99,13 @@ export const RegisterPage = () => {
                                     placeholder="confirm password"
                                     required
                                 />
-                                <input
-                                    type="submit"
-                                    value={
-                                        logingState.state === 'idle'
-                                            ? 'Sign up'
-                                            : 'Creating account...'
-                                    }
-                                />
+                                <button className="submit__btn">
+                                    {registerState.state === 'idle' ? (
+                                        'Sign Up'
+                                    ) : (
+                                        <ImSpinner3 className="spinner" />
+                                    )}
+                                </button>
                             </Form>
                             <div className="login-redirects">
                                 <p className="">

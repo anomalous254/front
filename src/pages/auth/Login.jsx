@@ -3,8 +3,7 @@ import './index.scss';
 import { Form, redirect, useNavigation, Link } from 'react-router-dom';
 import bot from '../../assets/avatar/bot.png';
 import { toast } from 'react-toastify';
-import { getUserInfo } from '../../features';
-import { useDispatch } from 'react-redux';
+import { ImSpinner3 } from 'react-icons/im';
 import { loginUser } from '../../services/loginUser';
 
 export const action = async ({ request }) => {
@@ -13,7 +12,7 @@ export const action = async ({ request }) => {
     const password = loginData.get('password');
     const credentials = { email, password };
     try {
-        const reponse =  await loginUser(credentials);
+        const reponse = await loginUser(credentials);
         toast.success('succesfully logged in!', {
             theme: 'dark',
             autoClose: 3000,
@@ -57,14 +56,13 @@ export const LoginPage = () => {
                                     className="input"
                                     placeholder="password"
                                 />
-                                <input
-                                    type="submit"
-                                    value={
-                                        logingState.state === 'idle'
-                                            ? 'Login'
-                                            : 'Loging in...'
-                                    }
-                                />
+                                <button className="submit__btn">
+                                    {logingState.state === 'idle' ? (
+                                        'Login'
+                                    ) : (
+                                        <ImSpinner3 className="spinner" />
+                                    )}
+                                </button>
                             </Form>
                             <div className="login-redirects">
                                 <p className="">

@@ -43,13 +43,13 @@
             gap: 0.7em;
             flex-direction: column;
 
-            label{
-              display: none;
-              &::after{
-                content: '*';
-                color: tomato;
-                margin-left: .3em;
-              }
+            label {
+                display: none;
+                &::after {
+                    content: '*';
+                    color: tomato;
+                    margin-left: 0.3em;
+                }
             }
             input {
                 background-color: transparent;
@@ -61,26 +61,41 @@
                 font-size: 1.1em;
                 border-radius: 0.4em;
                 color: black;
-                font-size: .9em;
-                &::placeholder{
-                  font-size: .85em;
+                font-size: 0.9em;
+                &::placeholder {
+                    font-size: 0.85em;
                 }
             }
-            input[type='submit'] {
-                background-color: white;
-                border-radius: 0.4em;
-                margin: 1em 0;
-                padding: 0.4em;
-                font-size: 1.1em;
+            .submit__btn {
+                background-color: #f5f5f5;
+                color: black;
                 cursor: pointer;
+                margin: .6em 0;
+                border-radius: 0.4rem;
+                font-size: 1.2rem;
+                font-family: var(--font-style);
+                padding: 0.3rem;
+                border: none;
+                .spinner {
+                    animation: spin 2s linear infinite;
+
+                    @keyframes spin {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+                        100% {
+                            transform: rotate(360deg);
+                        }
+                    }
+                }
             }
         }
     }
 
-    .login-redirects{
-      font-size: .9em;
-      a{
-        color: black;
-      }
+    .login-redirects {
+        font-size: 0.9em;
+        a {
+            color: black;
+        }
     }
 }
