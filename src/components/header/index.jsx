@@ -12,12 +12,22 @@ import { FaInfo } from 'react-icons/fa';
 import { IoGitBranch } from 'react-icons/io5';
 import privacyPolicy from '../../assets/docs/lulu-pp.pdf';
 import { useUserData } from '../../hooks';
+import { logoutUser } from '../../services/logout';
+import { toast } from 'react-toastify';
 
 export const Header = () => {
     const [showMenu, setShowMenu] = React.useState(false);
     const path = useLocation();
-    const {user} = useUserData();
- 
+    const { user } = useUserData();
+
+    const logout = async () => {
+        setShowMenu(!showMenu);
+        const response = await logoutUser();
+        toast.success('succesfully logged out! ', {
+            theme: 'dark',
+            autoClose: 3000,
+        });
+    };
 
     return (
         <React.Fragment>
@@ -93,7 +103,7 @@ export const Header = () => {
                                     Leaderboard
                                 </NavLink>
                                 <NavLink
-                                    onClick={() => setShowMenu(!showMenu)}
+                                    onClick={logout}
                                     to="/login"
                                 >
                                     Quit
