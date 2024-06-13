@@ -20,7 +20,7 @@ export const action = async ({ request }) => {
         return redirect('/dashboard');
     } catch (error) {
         console.log(error);
-        toast.error('acccount not found !', { theme: 'dark', autoClose: 3000 });
+        toast.error('acccount not found !', { theme: 'light', autoClose: 3000 });
         return null;
     }
 };

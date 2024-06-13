@@ -26,7 +26,7 @@ export const action = async ({ request }) => {
     };
     try {
         const response = await registerUser(credentials);
-        toast.success('Accout created successfuly!!', { theme: 'dark' });
+        toast.success('Accout created successfuly!!', { theme: 'light' });
         return redirect('/login');
     } catch (error) {
         const errormsg = error.response.data.detail;

@@ -13,7 +13,7 @@ export const SideBar = () => {
     const logout = async () => {
         const response = await logoutUser();
         toast.success('succesfully logged out! ', {
-            theme: 'dark',
+            theme: 'light',
             autoClose: 3000,
         });
     };

@@ -24,7 +24,7 @@ export const Header = () => {
         setShowMenu(!showMenu);
         const response = await logoutUser();
         toast.success('succesfully logged out! ', {
-            theme: 'dark',
+            theme: 'light',
             autoClose: 3000,
         });
     };
