@@ -5,6 +5,7 @@ import bot from '../../assets/avatar/bot.png';
 import { toast } from 'react-toastify';
 import { ImSpinner3 } from 'react-icons/im';
 import { loginUser } from '../../services/loginUser';
+import Cookies from 'js-cookie';
 
 export const action = async ({ request }) => {
     const loginData = await request.formData();
@@ -12,7 +13,17 @@ export const action = async ({ request }) => {
     const password = loginData.get('password');
     const credentials = { email, password };
     try {
-        const reponse = await loginUser(credentials);
+        const { access, refresh } = await loginUser(credentials);
+       /*  Cookies.set('access', access, {
+            secure: true,
+            sameSite: 'None',
+            path: '/',
+        });
+        Cookies.set('refresh', refresh, {
+            secure: true,
+            sameSite: 'None',
+            path: '/',
+        }); */
         toast.success('succesfully logged in!', {
             theme: 'light',
             autoClose: 3000,
@@ -20,7 +31,10 @@ export const action = async ({ request }) => {
         return redirect('/dashboard');
     } catch (error) {
         console.log(error);
-        toast.error('acccount not found !', { theme: 'light', autoClose: 3000 });
+        toast.error('acccount not found !', {
+            theme: 'light',
+            autoClose: 3000,
+        });
         return null;
     }
 };
