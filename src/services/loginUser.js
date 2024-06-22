@@ -7,7 +7,7 @@ export const loginUser = async (cred) => {
         const data = response.data;
 
         // Store access token in cookies
-        Cookies.set('access_token', data.access, { expires: 7 });
+        Cookies.set('access_token', data.access, {secure: true, sameSite : "None" ,expires: 1 });
 
         return data;
     } catch (e) {

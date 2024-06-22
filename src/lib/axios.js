@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const baseURL = 'http://127.0.0.1:8000/api/v1/';
+const baseURL = 'https://game-dash.azurewebsites.net/api/v1/';
 
 export const api = axios.create({
     baseURL,
