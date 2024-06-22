@@ -14,16 +14,11 @@ export const action = async ({ request }) => {
     const credentials = { email, password };
     try {
         const { access, refresh } = await loginUser(credentials);
-       /*  Cookies.set('access', access, {
+        Cookies.set('access', access, {
             secure: true,
             sameSite: 'None',
-            path: '/',
+            expires: 1,
         });
-        Cookies.set('refresh', refresh, {
-            secure: true,
-            sameSite: 'None',
-            path: '/',
-        }); */
         toast.success('succesfully logged in!', {
             theme: 'light',
             autoClose: 3000,
@@ -50,7 +45,7 @@ export const LoginPage = () => {
                     <div className="form-container">
                         <div>
                             <div className="login-header">
-                                <h2 className="login-text">Login</h2>
+                                <h2 className="login-text">Login test</h2>
                             </div>
                         </div>
 

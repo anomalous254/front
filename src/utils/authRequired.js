@@ -3,7 +3,7 @@ import { api } from '../lib/axios';
 
 export const verifyToken = async () => {
     try {
-        const token = Cookies.get('access_token');
+        const token = Cookies.get('access');
         if (!token) {
             return false;
         }

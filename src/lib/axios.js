@@ -8,13 +8,12 @@ export const api = axios.create({
     headers: {
         'Content-Type': 'application/json',
     },
-    withCredentials : true
 });
 
 // Add a request interceptor
 api.interceptors.request.use(
     (config) => {
-        const token = Cookies.get('access_token');
+        const token = Cookies.get('access');
         if (token) {
             config.headers.Authorization = `JWT ${token}`;
         }
